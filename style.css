@@ -3210,3 +3210,75 @@ footer a:hover {
         padding: 14px 13px;
     }
 }
+
+
+
+/* ==========================================
+   MOBILE FIX — FLOATING AWS, LINUX & DEVOPS TAGS
+   ========================================== */
+
+@media (max-width: 600px) {
+    .hero-visual {
+        width: 100%;
+        min-width: 0;
+        overflow: visible;
+    }
+
+    .float-tag {
+        display: block;
+        max-width: calc(100% - 8px);
+        padding: 6px 8px;
+        font-size: 9px;
+        white-space: nowrap;
+        box-sizing: border-box;
+    }
+
+    /* AWS */
+    .t1 {
+        right: 4px;
+        left: auto;
+        top: 38px;
+    }
+
+    /* Linux */
+    .t2 {
+        left: 4px;
+        right: auto;
+        bottom: 65px;
+    }
+
+    /* DevOps */
+    .t3 {
+        right: 4px;
+        left: auto;
+        bottom: 12px;
+    }
+}
+
+/* Extra-small phones */
+@media (max-width: 380px) {
+    .float-tag {
+        padding: 5px 6px;
+        font-size: 8px;
+        border-radius: 6px;
+    }
+
+    .float-tag small {
+        font-size: 6px;
+    }
+
+    .t1 {
+        right: 3px;
+        top: 32px;
+    }
+
+    .t2 {
+        left: 3px;
+        bottom: 58px;
+    }
+
+    .t3 {
+        right: 3px;
+        bottom: 8px;
+    }
+}
