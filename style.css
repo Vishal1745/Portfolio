@@ -6794,3 +6794,15 @@ footer {
         width: calc(100% - 20px);
     }
 }
+
+
+/* =========================================================
+   FIX: GRADIENT TEXT CLIPPING THE LAST LETTER
+   ========================================================= */
+
+h1 em,
+h2 em {
+    display: inline-block;
+    padding-right: 0.12em;
+    margin-right: -0.12em;
+}
