@@ -6809,19 +6809,42 @@ h2 em {
 
 
 /* =========================================================
-   MOBILE / TABLET: TIGHT SPACING AROUND TERMINAL + TAGS
+   MOBILE / TABLET: REMOVE EXTRA SPACE AROUND TERMINAL + TAGS
    ========================================================= */
 
 @media (max-width: 900px) {
+    .hero {
+        gap: 10px !important;
+        padding-bottom: 10px !important;
+    }
+
     .hero-visual {
-        height: auto;
-        min-height: 0;
-        padding: 50px 0;
+        height: auto !important;
+        min-height: 0 !important;
+        padding: 38px 0 !important;
+        margin: 0 !important;
+    }
+
+    .float-tag.t1 {
+        top: 0 !important;
+        bottom: auto !important;
+    }
+
+    .float-tag.t2,
+    .float-tag.t3 {
+        bottom: 0 !important;
+        top: auto !important;
+    }
+
+    /* The decorative halo and rings no longer need to be large */
+    .halo,
+    .ring {
+        display: none !important;
     }
 }
 
 @media (max-width: 380px) {
     .hero-visual {
-        padding: 46px 0;
+        padding: 34px 0 !important;
     }
 }
