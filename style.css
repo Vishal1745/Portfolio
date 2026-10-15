@@ -6806,3 +6806,22 @@ h2 em {
     padding-right: 0.12em;
     margin-right: -0.12em;
 }
+
+
+/* =========================================================
+   MOBILE / TABLET: TIGHT SPACING AROUND TERMINAL + TAGS
+   ========================================================= */
+
+@media (max-width: 900px) {
+    .hero-visual {
+        height: auto;
+        min-height: 0;
+        padding: 50px 0;
+    }
+}
+
+@media (max-width: 380px) {
+    .hero-visual {
+        padding: 46px 0;
+    }
+}
