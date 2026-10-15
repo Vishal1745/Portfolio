@@ -788,11 +788,11 @@ nav a.active::after {
 
 
 
-    gap: 25px;
+    gap: 5px;
 
 
 
-    padding-top: 95px;
+    padding-top: 5px;
 
     padding-bottom: 25px;
 
@@ -836,7 +836,7 @@ nav a.active::after {
 
 
 
-    padding: 7px 11px;
+    padding: 5px 9px;
 
     border-radius: 99px;
 
@@ -1798,7 +1798,7 @@ h2 em {
 
 
 
-    bottom: 25px;
+    bottom: 15px;
 
     left: 50%;
 
@@ -6560,7 +6560,7 @@ footer a:hover {
 
 
 /* =========================================================
-   FLOATING TAGS — OUTSIDE TERMINAL EDGES
+   FLOATING TAGS — PLACED ABOVE / BELOW THE TERMINAL
    ========================================================= */
 
 .hero-visual {
@@ -6574,32 +6574,46 @@ footer a:hover {
 }
 
 .float-tag {
+    position: absolute;
+    display: block;
     z-index: 5;
     white-space: nowrap;
-    transform-origin: center;
 }
 
-/* Desktop: tags sit just beyond the terminal edges */
-.t1 {
-    right: -12px;
-    top: 65px;
+/* AWS: above the terminal, top-right */
+.float-tag.t1 {
+    top: 10px;
+    right: 20px;
+    left: auto;
+    bottom: auto;
 }
 
-.t2 {
-    left: -12px;
-    bottom: 85px;
+/* LINUX: below the terminal, bottom-left */
+.float-tag.t2 {
+    bottom: 10px;
+    left: 20px;
+    right: auto;
+    top: auto;
 }
 
-.t3 {
-    right: -12px;
-    bottom: 35px;
+/* DEVOPS: below the terminal, bottom-right */
+.float-tag.t3 {
+    bottom: 10px;
+    right: 20px;
+    left: auto;
+    top: auto;
 }
 
-/* Mobile phones */
+/* Tablet / mobile: a bit more height so the tags have room outside */
+@media (max-width: 900px) {
+    .hero-visual {
+        height: 460px;
+    }
+}
+
 @media (max-width: 600px) {
     .hero-visual {
-        width: 100%;
-        overflow: visible;
+        height: 430px;
     }
 
     .float-tag {
@@ -6608,24 +6622,27 @@ footer a:hover {
         scale: .85;
     }
 
-    .t1 {
-        right: -5px;
-        top: 35px;
+    .float-tag.t1 {
+        top: 8px;
+        right: 8px;
     }
 
-    .t2 {
-        left: -5px;
-        bottom: 75px;
+    .float-tag.t2 {
+        bottom: 8px;
+        left: 8px;
     }
 
-    .t3 {
-        right: -5px;
-        bottom: 15px;
+    .float-tag.t3 {
+        bottom: 8px;
+        right: 8px;
     }
 }
 
-/* Small phones */
 @media (max-width: 380px) {
+    .hero-visual {
+        height: 400px;
+    }
+
     .float-tag {
         padding: 5px 6px;
         font-size: 8px;
@@ -6634,110 +6651,146 @@ footer a:hover {
     .float-tag small {
         font-size: 6px;
     }
-
-    .t1 {
-        right: 0;
-        top: 25px;
-    }
-
-    .t2 {
-        left: 0;
-        bottom: 65px;
-    }
-
-    .t3 {
-        right: 0;
-        bottom: 5px;
-    }
 }
 
-/* Extra-small phones: keep all three tags visible */
 @media (max-width: 320px) {
+    .hero-visual {
+        height: 370px;
+    }
+
     .float-tag {
-        display: block;
         scale: .72;
     }
+}
 
-    .t1 {
-        right: 0;
-        top: 15px;
+
+/* =========================================================
+   REMOVE EXTRA SPACE (FINAL OVERRIDES)
+   ========================================================= */
+
+/* ---------- Hero ---------- */
+.hero {
+    min-height: 0;
+    padding-top: 95px;
+    padding-bottom: 30px;
+    gap: 20px;
+}
+
+.hero-visual {
+    height: 490px;
+}
+
+.scroll-cue {
+    display: none;
+}
+
+/* Tags sit right at the top and bottom edge of the hero visual */
+.float-tag.t1 { top: 0; }
+.float-tag.t2 { bottom: 0; }
+.float-tag.t3 { bottom: 0; }
+
+/* ---------- General sections ---------- */
+.metrics {
+    padding: 18px 0;
+}
+
+.section {
+    padding: 20px 0;
+}
+
+.section-title {
+    margin-bottom: 20px;
+}
+
+/* ---------- Skills: remove the 50px margin ---------- */
+.stack-section {
+    width: min(1160px, 92%);
+    margin: 0 auto !important;
+    padding: 20px 0;
+}
+
+.stack-card p {
+    min-height: 0;
+}
+
+/* ---------- Projects ---------- */
+.project-art {
+    height: 210px;
+}
+
+.project-body p {
+    min-height: 0;
+}
+
+/* ---------- Roadmap ---------- */
+.road {
+    min-height: 0;
+}
+
+/* ---------- Contact and footer ---------- */
+.contact {
+    padding-bottom: 20px;
+}
+
+.contact-box {
+    padding: 40px 25px;
+}
+
+footer {
+    padding: 20px 25px;
+}
+
+/* ---------- Tablet ---------- */
+@media (max-width: 900px) {
+    .hero {
+        padding-top: 85px;
+        padding-bottom: 20px;
     }
 
-    .t2 {
-        left: 0;
-        bottom: 55px;
-    }
-
-    .t3 {
-        right: 0;
-        bottom: 0;
+    .hero-visual {
+        height: 450px;
     }
 }
 
-/* FINAL FIX: keep AWS and LINUX outside the terminal, like DEVOPS */
-.float-tag.t1 {
-    display: block !important;
-    position: absolute !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    z-index: 10 !important;
-    right: -12px !important;
-    left: auto !important;
-    top: 65px !important;
-    bottom: auto !important;
-    white-space: nowrap !important;
-}
-
-.float-tag.t2 {
-    display: block !important;
-    position: absolute !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    z-index: 10 !important;
-    left: -12px !important;
-    right: auto !important;
-    bottom: 85px !important;
-    top: auto !important;
-    white-space: nowrap !important;
-}
-
-/* Keep AWS and LINUX outside the terminal on mobile too */
+/* ---------- Mobile ---------- */
 @media (max-width: 600px) {
-    .float-tag.t1 {
-        right: -5px !important;
-        left: auto !important;
-        top: 35px !important;
-        bottom: auto !important;
+    .hero {
+        padding-top: 80px;
     }
 
-    .float-tag.t2 {
-        left: -5px !important;
-        right: auto !important;
-        bottom: 75px !important;
-        top: auto !important;
+    .hero-visual {
+        height: 390px;
     }
+
+    .stack-section {
+        width: calc(100% - 30px);
+    }
+
+    .project-art {
+        height: 190px;
+    }
+
+    .float-tag.t1 { top: 0; right: 8px; }
+    .float-tag.t2 { bottom: 0; left: 8px; }
+    .float-tag.t3 { bottom: 0; right: 8px; }
 }
 
 @media (max-width: 380px) {
-    .float-tag.t1 {
-        right: 0 !important;
-        top: 25px !important;
+    .hero-visual {
+        height: 380px;
     }
 
-    .float-tag.t2 {
-        left: 0 !important;
-        bottom: 65px !important;
+    .stack-section {
+        width: calc(100% - 24px);
     }
 }
 
 @media (max-width: 320px) {
-    .float-tag.t1 {
-        right: 0 !important;
-        top: 15px !important;
+    .hero-visual {
+        height: 330px;
     }
 
-    .float-tag.t2 {
-        left: 0 !important;
-        bottom: 55px !important;
+    .stack-section {
+        width: calc(100% - 20px);
     }
 }
